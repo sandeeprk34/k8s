@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* To builds the dockerimage */
         //update your ECR registry URI
-        app = docker.build("gcr.io/mystic-impulse-245222/myapp")
+        app = docker.build("gcr.io/mystic-impulse-245222/solo")
     }
 
     stage('Test image') {
