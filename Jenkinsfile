@@ -35,4 +35,16 @@ node {
              sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster --num-nodes=2'
         
     }
+
+    stage('Deploy the container in Kubernetes') {
+             sh 'kubectl create deployment mydep --image=gcr.io/mystic-impulse-245222/soloo0000'
+    }
+
+    stage('Create a LoadBalancer Service to expose the url'){ 
+             sh 'kubectl expose deployment mydep --type=LoadBalancer --port 80 --target-port 8080'
+    }
+    
+    stage('Get Service or the External IP'){
+             sh 'kubectl get service'
+    }
 }
