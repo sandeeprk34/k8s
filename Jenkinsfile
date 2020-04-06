@@ -46,6 +46,14 @@ node {
     
     stage('Get Service or the External IP'){
              sh 'kubectl get service'
-             sleep 120 // seconds
+             sleep 300 // seconds
     }
+
+    stage('Delete Service') {
+              sh 'kubectl delete service mydep'
+              sleep 100
+    }
+     stage('Delete cluster'){
+            sh 'gcloud container clusters delete mycluster'
+     }
 }
