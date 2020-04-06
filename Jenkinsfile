@@ -46,5 +46,6 @@ node {
     
     stage('Get Service or the External IP'){
              sh 'kubectl get service'
+             sleep 120 // seconds
     }
 }
