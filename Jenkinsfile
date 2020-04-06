@@ -25,7 +25,7 @@ node {
         /* Finally, we'll push the image */
         //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
         // update your ECR registry URI and jenkins crendential paramater
-        docker.withRegistry('https://*******.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws_ecr')    {
+        docker.withRegistry('https://gcr.io/mystic-impulse-245222', 'mystic-impulse-245222')    {
             //app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
