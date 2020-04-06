@@ -32,8 +32,7 @@ node {
     }
 
     stage('create K8s cluster') {
-        steps {
              sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster --num-nodes=2'
-        }
+        
     }
 }
