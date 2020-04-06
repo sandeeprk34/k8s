@@ -42,11 +42,12 @@ node {
 
     stage('Create a LoadBalancer Service to expose the url'){ 
              sh 'kubectl expose deployment mydep --type=LoadBalancer --port 80 --target-port 8080'
+             sleep 300 // seconds
     }
     
     stage('Get Service or the External IP'){
              sh 'kubectl get service'
-             sleep 300 // seconds
+             sleep 300
     }
 
     stage('Delete Service') {
