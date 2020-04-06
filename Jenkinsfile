@@ -42,17 +42,17 @@ node {
 
     stage('Create a LoadBalancer Service to expose the url'){ 
              sh 'kubectl expose deployment mydep --type=LoadBalancer --port 80 --target-port 8080'
-             sleep 300 // seconds
+             sleep 120 // seconds
     }
     
     stage('Get Service or the External IP'){
              sh 'kubectl get service'
-             sleep 300
+             sleep 100
     }
 
     stage('Delete Service') {
               sh 'kubectl delete service mydep'
-              sleep 100
+              sleep 60
     }
      stage('Delete cluster'){
             sh 'gcloud container clusters delete mycluster'
