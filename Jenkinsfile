@@ -7,6 +7,9 @@ node {
         /* repository cloned to our Jenkins workspace */
 
         checkout scm
+
+    stage('fix docker: Got permission denied while trying to connect to the Docker daemon socket') {
+             sh 'sudo chmod 666 /var/run/docker.sock'
     }
 
     stage('Build dokcer base image locally') {
