@@ -57,6 +57,6 @@ node {
               sleep 60
     }
      stage('Delete cluster'){
-            sh 'gcloud container clusters delete mycluster --zone us-central1-a'
+            sh 'gcloud container clusters delete mycluster --zone us-central1-a --quiet'
      }
 }
