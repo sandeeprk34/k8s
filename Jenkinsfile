@@ -15,7 +15,7 @@ node {
     stage('Build dokcer base image locally') {
         /* To builds the dockerimage */
         //update your GCR registry URI
-        app = docker.build("gcr.io/mystic-impulse-245222/polo")
+        app = docker.build("gcr.io/mystic-impulse-245222/image1")
     }
 
     stage('Test docker base image') {
@@ -42,7 +42,7 @@ node {
     }
 
     stage('Deploy the dokcer base image in Kubernetes') {
-             sh 'kubectl create deployment mydep1 --image=gcr.io/mystic-impulse-245222/polo'
+             sh 'kubectl create deployment mydep1 --image=gcr.io/mystic-impulse-245222/image1'
     }
 
     stage('Create a LoadBalancer Service to expose the url'){ 
