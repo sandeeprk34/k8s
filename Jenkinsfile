@@ -37,16 +37,16 @@ node {
     }
 
     stage('create K8s cluster') {
-             sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster --num-nodes=2'
+             sh 'gcloud container clusters create --zone us-central1-a --network sanvpc mycluster1 --num-nodes=2'
         
     }
 
     stage('Deploy the dokcer base image in Kubernetes') {
-             sh 'kubectl create deployment mydep --image=gcr.io/mystic-impulse-245222/polo'
+             sh 'kubectl create deployment mydep1 --image=gcr.io/mystic-impulse-245222/polo'
     }
 
     stage('Create a LoadBalancer Service to expose the url'){ 
-             sh 'kubectl expose deployment mydep --type=LoadBalancer --port 80 --target-port 8080'
+             sh 'kubectl expose deployment mydep1 --type=LoadBalancer --port 80 --target-port 8080'
              sleep 120 // seconds
     }
     
@@ -56,10 +56,10 @@ node {
     }
 
     stage('Delete Service') {
-              sh 'kubectl delete service mydep'
+              sh 'kubectl delete service mydep1'
               sleep 60
     }
      stage('Delete cluster'){
-            sh 'gcloud container clusters delete mycluster --zone us-central1-a --quiet'
+            sh 'gcloud container clusters delete mycluster1 --zone us-central1-a --quiet'
      }
 }
