@@ -62,4 +62,13 @@ node {
      stage('Delete cluster'){
             sh 'gcloud container clusters delete mycluster1 --zone us-central1-a --quiet'
      }
+    
+    stage('Delete container images'){
+            sh ' gcloud container images delete image1 --quiet'
+     }
+    
+    
+   
+    
+    
 }
