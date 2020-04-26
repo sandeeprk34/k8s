@@ -42,7 +42,7 @@ node {
     }
 
     stage('Deploy the dokcer base image in Kubernetes') {
-             sh 'kubectl create deployment mydep --image=gcr.io/mystic-impulse-245222/soloo0000'
+             sh 'kubectl create deployment mydep --image=gcr.io/mystic-impulse-245222/polo'
     }
 
     stage('Create a LoadBalancer Service to expose the url'){ 
